@@ -7,6 +7,9 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
+plt.rcParams["font.family"] = "serif"
+plt.rcParams["font.serif"] = ["Times New Roman", "Nimbus Roman", "DejaVu Serif"]
+plt.rcParams["mathtext.fontset"] = "stix"
 plt.rcParams["axes.unicode_minus"] = False
 
 ROOT = Path(__file__).resolve().parent
@@ -46,6 +49,7 @@ colors = ["#9e9e9e"] * 3 + ["#5b8ff9", "#d9534f", "#bdbdbd"]
 ax[0].barh(tbl["model"], tbl["inc_mae"], color=colors)
 ax[0].set_xlabel("Increment MAE (mm) \u2193")
 ax[0].set_title("Session 8 independent test: increment scale")
+ax[0].set_xlim(0, 1.78)
 for i, v in enumerate(tbl["inc_mae"]):
     ax[0].text(v + 0.01, i, f"{v:.3f}", va="center", fontsize=9)
 ax[1].barh(tbl["model"], tbl["cum_r2"], color=colors)

@@ -1,0 +1,29 @@
+{
+  "model": "AutoGluon_w4s8",
+  "tag": "session8",
+  "inc_r2": -0.25500886724140215,
+  "inc_mae": 1.0957517384930895,
+  "inc_rmse": 1.3569759003067867,
+  "cum_r2": 0.9235126106836542,
+  "cum_mae": 1.0957517384930895,
+  "cum_rmse": 1.3569759003067867,
+  "fit_seconds": 118.5,
+  "seed": 2024,
+  "lags": 4,
+  "n_features": 28,
+  "session_train_session": 6,
+  "session_calib_session": 7,
+  "session_test_session": 8,
+  "bestsingle_inc_r2": -0.031324054839188875,
+  "bestsingle_inc_mae": 1.043157274193234,
+  "bestsingle_inc_rmse": 1.2301166908976022,
+  "bestsingle_cum_r2": 0.9371452373343079,
+  "bestsingle_cum_mae": 1.0431572741932338,
+  "bestsingle_cum_rmse": 1.2301166908976022,
+  "bestsingle_name": "CatBoostDeep_BAG_L1_FULL",
+  "baselines": {
+    "persistence_mae": 1.534567901234568,
+    "rate_extrapolation_mae": 1.260185185185185,
+    "ar4_ridge_mae": 1.1603718810326462
+  }
+}
