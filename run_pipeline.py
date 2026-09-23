@@ -36,6 +36,11 @@ warnings.filterwarnings("ignore")
 os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 
 ROOT = Path(__file__).resolve().parent
+# NOTE: legacy round-1 path (88-point appendix parse, superseded). The current
+# authoritative pipeline is run_pipeline_geo.py, which rebuilds the 81-point
+# dataset from data/monitoring_master_real.csv; this module is imported as a
+# library (config / AutoGluon wrapper / metrics) and its own stages are kept
+# for reference only.
 DATA = ROOT / "data" / "monitoring_long.csv"
 OUT = ROOT / "results"
 MODELS = ROOT / "models"

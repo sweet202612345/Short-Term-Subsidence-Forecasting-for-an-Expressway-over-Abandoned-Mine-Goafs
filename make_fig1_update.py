@@ -35,17 +35,17 @@ colors = ["#9e9e9e"] * 3 + ["#5b8ff9", "#d9534f", "#bdbdbd"]
 
 ax[0].barh(tbl["model"], tbl["inc_mae"], color=colors)
 ax[0].set_xlabel("Increment MAE (mm) \u2193", fontsize=16)
-ax[0].set_xlim(0, 1.78)
+ax[0].set_xlim(0, 1.65)
 ax[0].tick_params(axis="both", labelsize=14)
 for i, v in enumerate(tbl["inc_mae"]):
-    ax[0].text(v + 0.01, i, f"{v:.3f}", va="center", fontsize=13)
+    ax[0].text(v - 0.02, i, f"{v:.3f}", va="center", ha="right", fontsize=13, color="white")
 
 ax[1].barh(tbl["model"], tbl["cum_r2"], color=colors)
 ax[1].set_xlabel("Cumulative reconstructed R\u00b2 \u2191", fontsize=16)
-ax[1].set_xlim(0, 1.08)
+ax[1].set_xlim(0, 1.02)
 ax[1].tick_params(axis="both", labelsize=14)
 for i, v in enumerate(tbl["cum_r2"]):
-    ax[1].text(v + 0.006, i, f"{v:.3f}", va="center", fontsize=13)
+    ax[1].text(v - 0.012, i, f"{v:.3f}", va="center", ha="right", fontsize=13, color="white")
 
 fig.tight_layout()
 fig.savefig(FIG / "fig1_main_results.png", bbox_inches="tight", dpi=300)

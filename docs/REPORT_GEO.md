@@ -111,6 +111,17 @@ training session) — the manuscript states this: the grouting feature carries n
 variation because no treatment was performed during the monitoring window, and its
 predictive value awaits post-treatment data.
 
+### 3.7 Window-length sensitivity (`metrics_w4s8.json`, `metrics_w4s7.json`)
+
+A four-session input window (28 features: 14 temporal + 14 geological/mining) under the
+identical protocol attains increment MAE = **1.096 mm** on Session 8 (vs. 1.065 mm for the
+five-session window; baselines 1.535 / 1.260 / AR(4) 1.160 mm). Because the shorter window
+frees Session 5, the whole protocol can be shifted one session earlier (Session-5 training,
+Session-6 calibration, Session-7 testing): increment MAE = **1.098 mm** on that earlier
+forecast date, even though persistence degrades to 1.805 mm there. Reported in Section 3.4
+(final paragraph) to answer Reviewer 2 #1 / Reviewer 3 #2 (shorter input histories and
+successive forecast dates).
+
 ## 4. Key points for the revised manuscript
 
 1. **Dataset correction**: the "81 points × 8 sessions = 648 records" statement now
@@ -139,6 +150,8 @@ predictive value awaits post-treatment data.
 .venv/Scripts/python run_pipeline_geo.py ablation E  # A..E
 .venv/Scripts/python run_pipeline_geo.py seed 1      # 1..10
 .venv/Scripts/python run_pipeline_geo.py cv K21      # K21/K22/K23/JPK/RAMP
+.venv/Scripts/python run_window4.py w4s8             # 4-session window, same protocol (Section 3.4)
+.venv/Scripts/python run_window4.py w4s7             # 4-session window, one session earlier (Section 3.4)
 .venv/Scripts/python run_pipeline_geo.py intervals
 .venv/Scripts/python run_pipeline_geo.py importance
 python make_report_geo.py                            # summary tables + 6 figures (system python)
